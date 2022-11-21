@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Images Search</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
 
+        <!-- images -->
+        <section class="images-container">
+            <!-- search-form -->
+            <!-- search -->
+            <form class="search-form">
+                  <h1>사진 검색하기</h1>
+                    <input type="text" placeholder="search" class="search-input">
+                    <button class="btn">검색</button>
+                </form>
+             
+      
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+            <!-- images -->
+     
+            <div class="images-center"></div>
 
-    
-<!-- blogs -->
-<section class="blogs">
-  <!-- filters -->
-  <div class="filters-container">
-    <!-- search -->
-    <form class="input-form">
-      <input type="text" placeholder="search" class="search-input">
-    </form>
-    <!-- categories -->
-    <h5>Blogs</h5>
-    <article class="titles">
-      <button class="title btn">all</button>
-      <button class="title btn">all</button>
-      <button class="title btn">all</button>
-    </article>
-  </div>
+    </section>
 
-  <!-- blogs -->
-  <div class="blogs-container">
-    <!-- single blogs -->
-    <article class="blog">
-      <img src="#" class="blog-img img" alt="">
-
-      <footer>
-        <h5 class="blog-name">제목</h5>
-        <span class="blog-text">내용</span>
-      </footer>
-    </article>
-
-  </div>
-
-
-</section>
-
-  <script src="./app.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
