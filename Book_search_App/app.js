@@ -1,9 +1,12 @@
-
 function bookSearch () {
     let search = document.getElementById('bookName').value;
-    document.querySelector('.title').innerHTML = ""
+    // document.querySelector('.title').innerHTML = ""
+    // document.querySelector('.section-center').innerHTML = ""
+    document.querySelector('.books').innerHTML = ""
+     
+    document.getElementById('bookName').value = ""
 
-        $.ajax({
+    $.ajax({
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: search },
@@ -13,25 +16,27 @@ function bookSearch () {
               const booksLength = msg.documents.length;
 
               let books = document.querySelector('.books')
-              for(i=0; i < booksLength ;i++) {
+            
+              for(let i=0; i < booksLength ;i++) {
                 let book = `
-                <h2 class="title">${msg.documents[i].title}</h2>
-                <div class="section-center"><img src='${msg.documents[0].thumbnail}'/></div>
+                <div class="book_items">
+                <p class="title">${msg.documents[i].title}</p>
+                <div class="section-center"><a href="${msg.documents[i].url}"><img src='${msg.documents[i].thumbnail}'/></a>
+                </div>
                 </div>`
-
-                books.innerHTML = book
+                books.innerHTML += book
+                
               }
-              
-              // $(".title").append("<strong>" + msg.documents[0].title + "</strong>");
-  
-                console.log(msg.documents);
-                // $("p").append("<strong>" + msg.documents[0].title + "</strong>");
-                // $("p").append("<img src='" + msg.documents[0].thumbnail + "'/>");
             });
     }
 
 
-
-
 document.getElementById('search').addEventListener('click', bookSearch)
 
+document.getElementById('bookName').addEventListener('keypress', function(event){
+  if(event.key === 'Enter') {
+    event.preventDefault()
+    bookSearch()
+    
+  }
+})
