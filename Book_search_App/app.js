@@ -1,9 +1,37 @@
-// const apiKey = 'ttbrlaekgp82331907003'
-// const url = `https://www.aladin.co.kr/ttb/api/ItemList.aspx?MaxResults=10&QueryType=ItemNewAll&SearchTarget=Book&Version=20131101&output=js&start=1&ttbkey=ttbrlaekgp82331907003`
+
+function bookSearch () {
+    let search = document.getElementById('bookName').value;
+    document.querySelector('.title').innerHTML = ""
+
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query: search },
+            headers: { Authorization: "KakaoAK 7c98d915856717af7c7faa2ddcfef9d2" }
+        })
+            .done((msg) => {
+              const booksLength = msg.documents.length;
+
+              let books = document.querySelector('.books')
+              for(i=0; i < booksLength ;i++) {
+                let book = `
+                <h2 class="title">${msg.documents[i].title}</h2>
+                <div class="section-center"><img src='${msg.documents[0].thumbnail}'/></div>
+                </div>`
+
+                books.innerHTML = book
+              }
+              
+              // $(".title").append("<strong>" + msg.documents[0].title + "</strong>");
+  
+                console.log(msg.documents);
+                // $("p").append("<strong>" + msg.documents[0].title + "</strong>");
+                // $("p").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+            });
+    }
 
 
-fetch(`https://proxy.cors.sh/https://www.aladin.co.kr/ttb/api/ItemList.aspx?MaxResults=10&QueryType=ItemNewAll&SearchTarget=Book&Version=20131101&output=js&start=1&ttbkey=ttbrlaekgp82331907003`)
-.then(res => res.json())
-.then(data => console.log(data))
 
+
+document.getElementById('search').addEventListener('click', bookSearch)
 
