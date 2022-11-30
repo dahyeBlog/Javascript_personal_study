@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe App</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <form class="search-form">
+      <nav class="logo-container">
+        <a href="index.html"><img src="./logo.png" alt="logo"></a>
+      </nav>
+      <input type="text" placeholder="원하는 레시피를 검색하세요." name="menu" >
+      </form>
+     <section class="section menuLists">
+      <article class="loading hide-loading">
+        <img src="./loading.gif" alt="loading">
+      </article>
+
+      <h2 class="title"></h2>
+      <div class="section-center"></div>
+      
+      <div class="btn-container"></div>
+     </section>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
